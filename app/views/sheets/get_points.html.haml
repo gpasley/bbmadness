@@ -1,0 +1,12 @@
+.container
+  %br/
+  %br/
+  %br/
+  = link_to sheet.name, sheet
+  = link_to 'Edit', edit_sheet_path(sheet)
+  = sheet.round1g1a
+  = sheet.total_points
+  = succeed "Master:" do
+    %br/
+  = @master.round1g1a
+  Sheets #{@sheets.count}

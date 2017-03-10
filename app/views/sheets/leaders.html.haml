@@ -1,0 +1,39 @@
+%div
+  There are #{@sheets.size} entries. Contact gpasley@gmail.com if you have any questions about your score
+  %table#leaders
+    %th Name
+    %th Bracket
+    %th Final Four Teams
+    %th Champion Pick
+    %th Rd 1
+    %th Rd 2
+    %th Sweet 16
+    %th Elite 8
+    %th Final 4
+    %th Final
+    %th Total
+    - @sheets.each_with_index do |sheet, i|
+      - row_class = i%2 == 0 ? "even" : "odd"
+      %tr{:class => row_class}
+        %td= sheet.user.fullname
+        %td= link_to sheet.name, sheet
+        %td
+          %span{:class => 'loss' if team_loss(sheet.round4g1) == true}
+            = sheet.round4g1
+            ,
+          %span{:class => 'loss' if team_loss(sheet.round4g2) == true}
+            \ #{sheet.round4g2},
+          %span{:class => 'loss' if team_loss(sheet.round4g3) == true}
+            \ #{sheet.round4g3},
+          %span{:class => 'loss' if team_loss(sheet.round4g4) == true}
+            \ #{sheet.round4g4}
+        %td
+          %span{:class => 'loss' if team_loss(sheet.round6) == true}
+            = sheet.round6
+        %td= sheet.round1pts
+        %td= sheet.round2pts
+        %td= sheet.round3pts
+        %td= sheet.round4pts
+        %td= sheet.round5pts
+        %td= sheet.round6pts
+        %td= sheet.total_points

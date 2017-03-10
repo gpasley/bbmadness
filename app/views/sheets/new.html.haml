@@ -1,0 +1,150 @@
+= form_for [@sheet] do |f|
+  = render "shared/error_messages", :target => @sheet
+  %div
+    = f.text_field :name, :placeholder => 'Bracket Name...'
+    for #{current_user.fullname}
+  %table.mm{:summary => "Tournament Bracket"}
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g1a, Team.where("game = '1A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g1a, Team.where("game = '1A' or game = '2A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g1a, Team.where("game = '1A' or game = '2A' or game = '3A' or game = '4A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "8"}
+        %p.mm= f.collection_select :round4g1, Team.where("game = '1A' or game = '2A' or game = '3A' or game = '4A' or game = '5A' or game = '6A' or game = '7A' or game = '8A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "16"}
+        %p.mm= f.collection_select :round5g1, Team.where("game = '1A' or game = '2A' or game = '3A' or game = '4A' or game = '5A' or game = '6A' or game = '7A' or game = '8A' or game = '9A' or game = '10A' or game = '11A' or game = '12A' or game = '13A' or game = '14A' or game = '15A' or game = '16A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "8"}
+        %p.mm= f.collection_select :round6, Team.order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "16"}
+        %p.mm= f.collection_select :round5g2, Team.where("game = '1B' or game = '2B' or game = '3B' or game = '4B' or game = '5B' or game = '6B' or game = '7B' or game = '8B' or game = '9B' or game = '10B' or game = '11B' or game = '12B' or game = '13B' or game = '14B' or game = '15B' or game = '16B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "8"}
+        %p.mm= f.collection_select :round4g3, Team.where("game = '1B' or game = '2B' or game = '3B' or game = '4B' or game = '5B' or game = '6B' or game = '7B' or game = '8B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g1b, Team.where("game = '1B' or game = '2B' or game = '3B' or game = '4B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g1b, Team.where("game = '1B' or game = '2B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g1b, Team.where("game = '1B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g2a, Team.where("game = '2A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g2b, Team.where("game = '2B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g3a, Team.where("game = '3A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g2a, Team.where("game = '3A' or game = '4A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g2b, Team.where("game = '3B' or game = '4B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g3b, Team.where("game = '3B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g4a, Team.where("game = '4A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g4b, Team.where("game = '4B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g5a, Team.where("game = '5A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g3a, Team.where("game = '5A' or game = '6A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g2a, Team.where("game = '5A' or game = '6A' or game = '7A' or game = '8A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g2b, Team.where("game = '5B' or game = '6B' or game = '7B' or game = '8B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g3b, Team.where("game = '5B' or game = '6B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g5b, Team.where("game = '5B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g6a, Team.where("game = '6A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g6b, Team.where("game = '6B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g7a, Team.where("game = '7A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g4a, Team.where("game = '7A' or game = '8A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g4b, Team.where("game = '7B' or game = '8B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g7b, Team.where("game = '7B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g8a, Team.where("game = '8A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g8b, Team.where("game = '8B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g9a, Team.where("game = '9A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g5a, Team.where("game = '9A' or game = '10A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g3a, Team.where("game = '9A' or game = '10A' or game = '11A' or game = '12A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "8"}
+        %p.mm= f.collection_select :round4g2, Team.where("game = '9A' or game = '10A' or game = '11A' or game = '12A' or game = '13A' or game = '14A' or game = '15A' or game = '16A'").order(:name), :name, :display_name, :include_blank => ''
+      %td{:align => "center", :rowspan => "32"}
+        %p.mm= f.submit "Add Bracket", :class => "btn-success"
+      %td.mm{:rowspan => "8"}
+        %p.mm= f.collection_select :round4g4, Team.where("game = '9B' or game = '10B' or game = '11B' or game = '12B' or game = '13B' or game = '14B' or game = '15B' or game = '16B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g3b, Team.where("game = '9B' or game = '10B' or game = '11B' or game = '12B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g5b, Team.where("game = '9B' or game = '10B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g9b, Team.where("game = '9B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g10a, Team.where("game = '10A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g10b, Team.where("game = '10B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g11a, Team.where("game = '11A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g6a, Team.where("game = '11A' or game = '12A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g6b, Team.where("game = '11B' or game = '12B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g11b, Team.where("game = '11B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g12a, Team.where("game = '12A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g12b, Team.where("game = '12B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g13a, Team.where("game = '13A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g7a, Team.where("game = '13A' or game = '14A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g4a, Team.where("game = '13A' or game = '14A' or game = '15A' or game = '16A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "4"}
+        %p.mm= f.collection_select :round3g4b, Team.where("game = '13B' or game = '14B' or game = '15B' or game = '16B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g7b, Team.where("game = '13B' or game = '14B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g13b, Team.where("game = '13B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g14a, Team.where("game = '14A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g14b, Team.where("game = '14B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g15a, Team.where("game = '15A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g8a, Team.where("game = '15A' or game = '16A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm{:rowspan => "2"}
+        %p.mm= f.collection_select :round2g8b, Team.where("game = '15B' or game = '16B'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g15b, Team.where("game = '15B'").order(:name), :name, :display_name, :include_blank => ''
+    %tr
+      %td.mm
+        %p.mm= f.collection_select :round1g16a, Team.where("game = '16A'").order(:name), :name, :display_name, :include_blank => ''
+      %td.mm
+        %p.mm= f.collection_select :round1g16b, Team.where("game = '16B'").order(:name), :name, :display_name, :include_blank => ''

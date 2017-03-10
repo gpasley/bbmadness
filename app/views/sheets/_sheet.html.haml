@@ -1,0 +1,150 @@
+%div
+  %h3
+    = sheet.name
+    for #{current_user.fullname}
+%table.mm{:summary => "Tournament Bracket"}
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g1a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g1a
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g1a
+    %td.mm{:rowspan => "8"}
+      %p.mm= sheet.round4g1
+    %td.mm{:rowspan => "16"}
+      %p.mm= sheet.round5g1
+    %td.mm{:rowspan => "8"}
+      %p.mm= sheet.round6
+    %td.mm{:rowspan => "16"}
+      %p.mm= sheet.round5g2
+    %td.mm{:rowspan => "8"}
+      %p.mm= sheet.round4g3
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g1b
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g1b
+    %td.mm
+      %p.mm= sheet.round1g1b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g2a
+    %td.mm
+      %p.mm= sheet.round1g2b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g3a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g2a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g2b
+    %td.mm
+      %p.mm= sheet.round1g3b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g4a
+    %td.mm
+      %p.mm= sheet.round1g4b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g5a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g3a
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g2a
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g2b
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g3b
+    %td.mm
+      %p.mm= sheet.round1g5b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g6a
+    %td.mm
+      %p.mm= sheet.round1g6b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g7a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g4a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g4b
+    %td.mm
+      %p.mm= sheet.round1g7b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g8a
+    %td.mm
+      %p.mm= sheet.round1g8b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g9a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g5a
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g3a
+    %td.mm{:rowspan => "8"}
+      %p.mm= sheet.round4g2
+    %td{:align => "center", :rowspan => "32"}
+      = link_to "Edit Bracket", edit_sheet_path(sheet), :class => "btn btn-success"
+      %p.mm
+    %td.mm{:rowspan => "8"}
+      %p.mm= sheet.round4g4
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g3b
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g5b
+    %td.mm
+      %p.mm= sheet.round1g9b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g10a
+    %td.mm
+      %p.mm= sheet.round1g10b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g11a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g6a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g6b
+    %td.mm
+      %p.mm= sheet.round1g11b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g12a
+    %td.mm
+      %p.mm= sheet.round1g12b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g13a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g7a
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g4a
+    %td.mm{:rowspan => "4"}
+      %p.mm= sheet.round3g4b
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g7b
+    %td.mm
+      %p.mm= sheet.round1g13b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g14a
+    %td.mm
+      %p.mm= sheet.round1g14b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g15a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g8a
+    %td.mm{:rowspan => "2"}
+      %p.mm= sheet.round2g8b
+    %td.mm
+      %p.mm= sheet.round1g15b
+  %tr
+    %td.mm
+      %p.mm= sheet.round1g16a
+    %td.mm
+      %p.mm= sheet.round1g16b
