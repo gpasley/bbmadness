@@ -1,0 +1,56 @@
+.container
+  .hero-unit
+    .mytitle
+      March Madness Brackets #{Time.now.strftime("%Y")}
+  %br/
+  %p
+    %font{:color => "red"} Please review your bracket and contact gpasley@gmail.com for any corrections.  Otherwise, the higher seed will always be picked for the correction.
+  - if user_signed_in?
+    - unless @sheet.nil?
+      = link_to 'View Master Sheet', sheet_path(@sheet), :class => "btn btn-info"
+      %br/
+      %br/
+    - if current_user.is_admin?
+      = link_to 'Calculate', points_path, :class => "btn btn-success"
+      = link_to 'Lock', lock_sheets_path, :class => "btn btn-danger"
+      %br/
+      %br/
+    - if @locked.nil?
+      = link_to 'Add Bracket', new_sheet_path, :class => "btn success"
+      %br/
+  .row
+    .span3
+      %h2 Scoring
+      %p Round 1 - 1pt
+      %p Round 2 - 2pts
+      %p Round 3 - 4pts
+      %p Round 4 - 8pts
+      %p Round 5 - 16pts
+      %p Round 6 - 32pts
+      %p *Points per win
+      %br/
+      %p 1st -
+      %p 2nd -
+      %p 3rd -
+      %p Last -
+    .span4
+      %h2 Champion Pick
+      %table{:width => "50%"}
+        / - @picks.each do |pick|
+        /   %tr
+        /     - if team_loss(pick[0])==true
+        /       %td.mm.loss= pick[0]
+        /       %td.mm.loss{:align => "right"}= pick[1]
+        /     - else
+        /       %td= pick[0]
+        /       %td{:align => "right"}= pick[1]
+    .span5
+      %h2
+        Leaders #{link_to 'View All', leaders_path, :class => 'btn'}
+      %table{:width => "50%"}
+        / - @leaders.each do |leader|
+        /   %tr
+        /     %td
+        /       = leader.name
+        /     %td{:align => "right"}= leader.total_points
+  %div

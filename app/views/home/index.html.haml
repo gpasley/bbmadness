@@ -1,1 +1,4 @@
-We on Rails Dog!!!
+- if user_signed_in?
+  = render :partial => 'logged_in'
+- else
+  - render :partial => 'not_logged_in'
