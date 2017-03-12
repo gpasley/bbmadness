@@ -2,80 +2,80 @@
   %h3
     = @sheet.name
     - unless @sheet.is_master?
-      for #{@sheet.user.fullname}
+      for #{@sheet.user.full_name}
 %table.mm{:summary => "Tournament Bracket"}
   %tr
-    - if @master.round1g1a > '' && @master.round1g1a != @sheet.round1g1a
+    - if !@master.round1g1a.blank? && @master.round1g1a != @sheet.round1g1a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g1a
-    - if (@master.round2g1a > '' && @master.round2g1a != @sheet.round2g1a) || (team_loss(@sheet.round2g1a)==true && @master.round2g1a != @sheet.round2g1a)
+    - if (!@master.round2g1a.blank? && @master.round2g1a != @sheet.round2g1a) || (team_loss(@sheet.round2g1a)==true && @master.round2g1a != @sheet.round2g1a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g1a
-    - if (@master.round3g1a > '' && @master.round3g1a != @sheet.round3g1a) || (team_loss(@sheet.round3g1a)==true && @master.round3g1a != @sheet.round3g1a)
+    - if (!@master.round3g1a.blank? && @master.round3g1a != @sheet.round3g1a) || (team_loss(@sheet.round3g1a)==true && @master.round3g1a != @sheet.round3g1a)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g1a
-    - if (@master.round4g1 > '' && @master.round4g1 != @sheet.round4g1) || (team_loss(@sheet.round4g1)==true && @master.round4g1 != @sheet.round4g1)
+    - if (!@master.round4g1.blank? && @master.round4g1 != @sheet.round4g1) || (team_loss(@sheet.round4g1)==true && @master.round4g1 != @sheet.round4g1)
       %td.mm.loss{:rowspan => "8"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "8"}
         %p.mm
           = @sheet.round4g1
-    - if (@master.round5g1 > '' && @master.round5g1 != @sheet.round5g1) || (team_loss(@sheet.round5g1)==true && @master.round5g1 != @sheet.round5g1)
+    - if (!@master.round5g1.blank? && @master.round5g1 != @sheet.round5g1) || (team_loss(@sheet.round5g1)==true && @master.round5g1 != @sheet.round5g1)
       %td.mm.loss{:rowspan => "16"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "16"}
         %p.mm
           = @sheet.round5g1
-    - if (@master.round6 > '' && @master.round6 != @sheet.round6) || (team_loss(@sheet.round6)==true && @master.round6 != @sheet.round6)
+    - if (!@master.round6.blank? && @master.round6 != @sheet.round6) || (team_loss(@sheet.round6)==true && @master.round6 != @sheet.round6)
       %td.mm.loss{:rowspan => "8"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "8"}
         %p.mm
           = @sheet.round6
-    - if (@master.round5g2 > '' && @master.round5g2 != @sheet.round5g2) || (team_loss(@sheet.round5g2)==true && @master.round5g2 != @sheet.round5g2)
+    - if (!@master.round5g2.blank? && @master.round5g2 != @sheet.round5g2) || (team_loss(@sheet.round5g2)==true && @master.round5g2 != @sheet.round5g2)
       %td.mm.loss{:rowspan => "16"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "16"}
         %p.mm
           = @sheet.round5g2
-    - if (@master.round4g3 > '' && @master.round4g3 != @sheet.round4g3) || (team_loss(@sheet.round4g3)==true && @master.round4g3 != @sheet.round4g3)
+    - if (!@master.round4g3.blank? && @master.round4g3 != @sheet.round4g3) || (team_loss(@sheet.round4g3)==true && @master.round4g3 != @sheet.round4g3)
       %td.mm.loss{:rowspan => "8"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "8"}
         %p.mm
           = @sheet.round4g3
-    - if (@master.round3g1b > '' && @master.round3g1b != @sheet.round3g1b) || (team_loss(@sheet.round3g1b)==true && @master.round3g1b != @sheet.round3g1b)
+    - if (!@master.round3g1b.blank? && @master.round3g1b != @sheet.round3g1b) || (team_loss(@sheet.round3g1b)==true && @master.round3g1b != @sheet.round3g1b)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g1b
-    - if (@master.round2g1b > '' && @master.round2g1b != @sheet.round2g1b) || (team_loss(@sheet.round2g1b)==true && @master.round2g1b != @sheet.round2g1b)
+    - if (!@master.round2g1b.blank? && @master.round2g1b != @sheet.round2g1b) || (team_loss(@sheet.round2g1b)==true && @master.round2g1b != @sheet.round2g1b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g1b
-    - if @master.round1g1b > '' && @master.round1g1b != @sheet.round1g1b
+    - if !@master.round1g1b.blank? && @master.round1g1b != @sheet.round1g1b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -83,14 +83,14 @@
         %p.mm
           = @sheet.round1g1b
   %tr
-    - if @master.round1g2a > '' && @master.round1g2a != @sheet.round1g2a
+    - if !@master.round1g2a.blank? && @master.round1g2a != @sheet.round1g2a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g2a
-    - if @master.round1g2b > '' && @master.round1g2b != @sheet.round1g2b
+    - if !@master.round1g2b.blank? && @master.round1g2b != @sheet.round1g2b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -98,28 +98,28 @@
         %p.mm
           = @sheet.round1g2b
   %tr
-    - if @master.round1g3a > '' && @master.round1g3a != @sheet.round1g3a
+    - if !@master.round1g3a.blank? && @master.round1g3a != @sheet.round1g3a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g3a
-    - if (@master.round2g2a > '' && @master.round2g2a != @sheet.round2g2a) || (team_loss(@sheet.round2g2a)==true && @master.round2g2a != @sheet.round2g2a)
+    - if (!@master.round2g2a.blank? && @master.round2g2a != @sheet.round2g2a) || (team_loss(@sheet.round2g2a)==true && @master.round2g2a != @sheet.round2g2a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g2a
-    - if (@master.round2g2b > '' && @master.round2g2b != @sheet.round2g2b) || (team_loss(@sheet.round2g2b)==true && @master.round2g2b != @sheet.round2g2b)
+    - if (!@master.round2g2b.blank? && @master.round2g2b != @sheet.round2g2b) || (team_loss(@sheet.round2g2b)==true && @master.round2g2b != @sheet.round2g2b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g2b
-    - if @master.round1g3b > '' && @master.round1g3b != @sheet.round1g3b
+    - if !@master.round1g3b.blank? && @master.round1g3b != @sheet.round1g3b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -127,14 +127,14 @@
         %p.mm
           = @sheet.round1g3b
   %tr
-    - if @master.round1g4a > '' && @master.round1g4a != @sheet.round1g4a
+    - if !@master.round1g4a.blank? && @master.round1g4a != @sheet.round1g4a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g4a
-    - if @master.round1g4b > '' && @master.round1g4b != @sheet.round1g4b
+    - if !@master.round1g4b.blank? && @master.round1g4b != @sheet.round1g4b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -142,42 +142,42 @@
         %p.mm
           = @sheet.round1g4b
   %tr
-    - if @master.round1g5a > '' && @master.round1g5a != @sheet.round1g5a
+    - if !@master.round1g5a.blank? && @master.round1g5a != @sheet.round1g5a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g5a
-    - if (@master.round2g3a > '' && @master.round2g3a != @sheet.round2g3a) || (team_loss(@sheet.round2g3a)==true && @master.round2g3a != @sheet.round2g3a)
+    - if (!@master.round2g3a.blank? && @master.round2g3a != @sheet.round2g3a) || (team_loss(@sheet.round2g3a)==true && @master.round2g3a != @sheet.round2g3a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g3a
-    - if (@master.round3g2a > '' && @master.round3g2a != @sheet.round3g2a) || (team_loss(@sheet.round3g2a)==true && @master.round3g2a != @sheet.round3g2a)
+    - if (!@master.round3g2a.blank? && @master.round3g2a != @sheet.round3g2a) || (team_loss(@sheet.round3g2a)==true && @master.round3g2a != @sheet.round3g2a)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g2a
-    - if (@master.round3g2b > '' && @master.round3g2b != @sheet.round3g2b) || (team_loss(@sheet.round3g2b)==true && @master.round3g2b != @sheet.round3g2b)
+    - if (!@master.round3g2b.blank? && @master.round3g2b != @sheet.round3g2b) || (team_loss(@sheet.round3g2b)==true && @master.round3g2b != @sheet.round3g2b)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g2b
-    - if (@master.round2g3b > '' && @master.round2g3b != @sheet.round2g3b) || (team_loss(@sheet.round2g3b)==true && @master.round2g3b != @sheet.round2g3b)
+    - if (!@master.round2g3b.blank? && @master.round2g3b != @sheet.round2g3b) || (team_loss(@sheet.round2g3b)==true && @master.round2g3b != @sheet.round2g3b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g3b
-    - if @master.round1g5b > '' && @master.round1g5b != @sheet.round1g5b
+    - if !@master.round1g5b.blank? && @master.round1g5b != @sheet.round1g5b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -185,14 +185,14 @@
         %p.mm
           = @sheet.round1g5b
   %tr
-    - if @master.round1g6a > '' && @master.round1g6a != @sheet.round1g6a
+    - if !@master.round1g6a.blank? && @master.round1g6a != @sheet.round1g6a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g6a
-    - if @master.round1g6b > '' && @master.round1g6b != @sheet.round1g6b
+    - if !@master.round1g6b.blank? && @master.round1g6b != @sheet.round1g6b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -200,28 +200,28 @@
         %p.mm
           = @sheet.round1g6b
   %tr
-    - if @master.round1g7a > '' && @master.round1g7a != @sheet.round1g7a
+    - if !@master.round1g7a.blank? && @master.round1g7a != @sheet.round1g7a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g7a
-    - if (@master.round2g4a > '' && @master.round2g4a != @sheet.round2g4a) || (team_loss(@sheet.round2g4a)==true && @master.round2g4a != @sheet.round2g4a)
+    - if (!@master.round2g4a.blank? && @master.round2g4a != @sheet.round2g4a) || (team_loss(@sheet.round2g4a)==true && @master.round2g4a != @sheet.round2g4a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g4a
-    - if (@master.round2g4b > '' && @master.round2g4b != @sheet.round2g4b) || (team_loss(@sheet.round2g4b)==true && @master.round2g4b != @sheet.round2g4b)
+    - if (!@master.round2g4b.blank? && @master.round2g4b != @sheet.round2g4b) || (team_loss(@sheet.round2g4b)==true && @master.round2g4b != @sheet.round2g4b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g4b
-    - if @master.round1g7b > '' && @master.round1g7b != @sheet.round1g7b
+    - if !@master.round1g7b.blank? && @master.round1g7b != @sheet.round1g7b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -229,14 +229,14 @@
         %p.mm
           = @sheet.round1g7b
   %tr
-    - if @master.round1g8a > '' && @master.round1g8a != @sheet.round1g8a
+    - if !@master.round1g8a.blank? && @master.round1g8a != @sheet.round1g8a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g8a
-    - if @master.round1g8b > '' && @master.round1g8b != @sheet.round1g8b
+    - if !@master.round1g8b.blank? && @master.round1g8b != @sheet.round1g8b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -244,28 +244,28 @@
         %p.mm
           = @sheet.round1g8b
   %tr
-    - if @master.round1g9a > '' && @master.round1g9a != @sheet.round1g9a
+    - if !@master.round1g9a.blank? && @master.round1g9a != @sheet.round1g9a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g9a
-    - if (@master.round2g5a > '' && @master.round2g5a != @sheet.round2g5a) || (team_loss(@sheet.round2g5a)==true && @master.round2g5a != @sheet.round2g5a)
+    - if (!@master.round2g5a.blank? && @master.round2g5a != @sheet.round2g5a) || (team_loss(@sheet.round2g5a)==true && @master.round2g5a != @sheet.round2g5a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g5a
-    - if (@master.round3g3a > '' && @master.round3g3a != @sheet.round3g3a) || (team_loss(@sheet.round3g3a)==true && @master.round3g3a != @sheet.round3g3a)
+    - if (!@master.round3g3a.blank? && @master.round3g3a != @sheet.round3g3a) || (team_loss(@sheet.round3g3a)==true && @master.round3g3a != @sheet.round3g3a)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g3a
-    - if (@master.round4g2 > '' && @master.round4g2 != @sheet.round4g2) || (team_loss(@sheet.round4g2)==true && @master.round4g2 != @sheet.round4g2)
+    - if (!@master.round4g2.blank? && @master.round4g2 != @sheet.round4g2) || (team_loss(@sheet.round4g2)==true && @master.round4g2 != @sheet.round4g2)
       %td.mm.loss{:rowspan => "8"}
         %p.mm.loss
     - else
@@ -276,28 +276,28 @@
         %p.mm
           - if ((@sheet.is_locked == false) && (@sheet.user == current_user)) || (current_user.is_admin?)
             = link_to "Edit Bracket", edit_sheet_path(@sheet), :class => "btn btn-success"
-    - if (@master.round4g4 > '' && @master.round4g4 != @sheet.round4g4) || (team_loss(@sheet.round4g4)==true && @master.round4g4 != @sheet.round4g4)
+    - if (!@master.round4g4.blank? && @master.round4g4 != @sheet.round4g4) || (team_loss(@sheet.round4g4)==true && @master.round4g4 != @sheet.round4g4)
       %td.mm.loss{:rowspan => "8"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "8"}
         %p.mm
           = @sheet.round4g4
-    - if (@master.round3g3b > '' && @master.round3g3b != @sheet.round3g3b) || (team_loss(@sheet.round3g3b)==true && @master.round3g3b != @sheet.round3g3b)
+    - if (!@master.round3g3b.blank? && @master.round3g3b != @sheet.round3g3b) || (team_loss(@sheet.round3g3b)==true && @master.round3g3b != @sheet.round3g3b)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g3b
-    - if (@master.round2g5b > '' && @master.round2g5b != @sheet.round2g5b) || (team_loss(@sheet.round2g5b)==true && @master.round2g5b != @sheet.round2g5b)
+    - if (!@master.round2g5b.blank? && @master.round2g5b != @sheet.round2g5b) || (team_loss(@sheet.round2g5b)==true && @master.round2g5b != @sheet.round2g5b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g5b
-    - if @master.round1g9b > '' && @master.round1g9b != @sheet.round1g9b
+    - if !@master.round1g9b.blank? && @master.round1g9b != @sheet.round1g9b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -305,14 +305,14 @@
         %p.mm
           = @sheet.round1g9b
   %tr
-    - if @master.round1g10a > '' && @master.round1g10a != @sheet.round1g10a
+    - if !@master.round1g10a.blank? && @master.round1g10a != @sheet.round1g10a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g10a
-    - if @master.round1g10b > '' && @master.round1g10b != @sheet.round1g10b
+    - if !@master.round1g10b.blank? && @master.round1g10b != @sheet.round1g10b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -320,28 +320,28 @@
         %p.mm
           = @sheet.round1g10b
   %tr
-    - if @master.round1g11a > '' && @master.round1g11a != @sheet.round1g11a
+    - if !@master.round1g11a.blank? && @master.round1g11a != @sheet.round1g11a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g11a
-    - if (@master.round2g6a > '' && @master.round2g6a != @sheet.round2g6a) || (team_loss(@sheet.round2g6a)==true && @master.round2g6a != @sheet.round2g6a)
+    - if (!@master.round2g6a.blank? && @master.round2g6a != @sheet.round2g6a) || (team_loss(@sheet.round2g6a)==true && @master.round2g6a != @sheet.round2g6a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g6a
-    - if (@master.round2g6b > '' && @master.round2g6b != @sheet.round2g6b) || (team_loss(@sheet.round2g6b)==true && @master.round2g6b != @sheet.round2g6b)
+    - if (!@master.round2g6b.blank? && @master.round2g6b != @sheet.round2g6b) || (team_loss(@sheet.round2g6b)==true && @master.round2g6b != @sheet.round2g6b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g6b
-    - if @master.round1g11b > '' && @master.round1g11b != @sheet.round1g11b
+    - if !@master.round1g11b.blank? && @master.round1g11b != @sheet.round1g11b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -349,14 +349,14 @@
         %p.mm
           = @sheet.round1g11b
   %tr
-    - if @master.round1g12a > '' && @master.round1g12a != @sheet.round1g12a
+    - if !@master.round1g12a.blank? && @master.round1g12a != @sheet.round1g12a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g12a
-    - if @master.round1g12b > '' && @master.round1g12b != @sheet.round1g12b
+    - if !@master.round1g12b.blank? && @master.round1g12b != @sheet.round1g12b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -364,42 +364,42 @@
         %p.mm
           = @sheet.round1g12b
   %tr
-    - if @master.round1g13a > '' && @master.round1g13a != @sheet.round1g13a
+    - if !@master.round1g13a.blank? && @master.round1g13a != @sheet.round1g13a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g13a
-    - if (@master.round2g7a > '' && @master.round2g7a != @sheet.round2g7a) || (team_loss(@sheet.round2g7a)==true && @master.round2g7a != @sheet.round2g7a)
+    - if (!@master.round2g7a.blank? && @master.round2g7a != @sheet.round2g7a) || (team_loss(@sheet.round2g7a)==true && @master.round2g7a != @sheet.round2g7a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g7a
-    - if (@master.round3g4a > '' && @master.round3g4a != @sheet.round3g4a) || (team_loss(@sheet.round3g4a)==true && @master.round3g4a != @sheet.round3g4a)
+    - if (!@master.round3g4a.blank? && @master.round3g4a != @sheet.round3g4a) || (team_loss(@sheet.round3g4a)==true && @master.round3g4a != @sheet.round3g4a)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g4a
-    - if (@master.round3g4b > '' && @master.round3g4b != @sheet.round3g4b) || (team_loss(@sheet.round3g4b)==true && @master.round3g4b != @sheet.round3g4b)
+    - if (!@master.round3g4b.blank? && @master.round3g4b != @sheet.round3g4b) || (team_loss(@sheet.round3g4b)==true && @master.round3g4b != @sheet.round3g4b)
       %td.mm.loss{:rowspan => "4"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "4"}
         %p.mm
           = @sheet.round3g4b
-    - if (@master.round2g7b > '' && @master.round2g7b != @sheet.round2g7b) || (team_loss(@sheet.round2g7b)==true && @master.round2g7b != @sheet.round2g7b)
+    - if (!@master.round2g7b.blank? && @master.round2g7b != @sheet.round2g7b) || (team_loss(@sheet.round2g7b)==true && @master.round2g7b != @sheet.round2g7b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g7b
-    - if @master.round1g13b > '' && @master.round1g13b != @sheet.round1g13b
+    - if !@master.round1g13b.blank? && @master.round1g13b != @sheet.round1g13b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -407,14 +407,14 @@
         %p.mm
           = @sheet.round1g13b
   %tr
-    - if @master.round1g14a > '' && @master.round1g14a != @sheet.round1g14a
+    - if !@master.round1g14a.blank? && @master.round1g14a != @sheet.round1g14a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g14a
-    - if @master.round1g14b > '' && @master.round1g14b != @sheet.round1g14b
+    - if !@master.round1g14b.blank? && @master.round1g14b != @sheet.round1g14b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -422,28 +422,28 @@
         %p.mm
           = @sheet.round1g14b
   %tr
-    - if @master.round1g15a > '' && @master.round1g15a != @sheet.round1g15a
+    - if !@master.round1g15a.blank? && @master.round1g15a != @sheet.round1g15a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g15a
-    - if (@master.round2g8a > '' && @master.round2g8a != @sheet.round2g8a) || (team_loss(@sheet.round2g8a)==true && @master.round2g8a != @sheet.round2g8a)
+    - if (!@master.round2g8a.blank? && @master.round2g8a != @sheet.round2g8a) || (team_loss(@sheet.round2g8a)==true && @master.round2g8a != @sheet.round2g8a)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g8a
-    - if (@master.round2g8b > '' && @master.round2g8b != @sheet.round2g8b) || (team_loss(@sheet.round2g8b)==true && @master.round2g8b != @sheet.round2g8b)
+    - if (!@master.round2g8b.blank? && @master.round2g8b != @sheet.round2g8b) || (team_loss(@sheet.round2g8b)==true && @master.round2g8b != @sheet.round2g8b)
       %td.mm.loss{:rowspan => "2"}
         %p.mm.loss
     - else
       %td.mm{:rowspan => "2"}
         %p.mm
           = @sheet.round2g8b
-    - if @master.round1g15b > '' && @master.round1g15b != @sheet.round1g15b
+    - if !@master.round1g15b.blank? && @master.round1g15b != @sheet.round1g15b
       %td.mm.loss
         %p.mm.loss
     - else
@@ -451,14 +451,14 @@
         %p.mm
           = @sheet.round1g15b
   %tr
-    - if @master.round1g16a > '' && @master.round1g16a != @sheet.round1g16a
+    - if !@master.round1g16a.blank? && @master.round1g16a != @sheet.round1g16a
       %td.mm.loss
         %p.mm.loss
     - else
       %td.mm
         %p.mm
           = @sheet.round1g16a
-    - if @master.round1g16b > '' && @master.round1g16b != @sheet.round1g16b
+    - if !@master.round1g16b.blank? && @master.round1g16b != @sheet.round1g16b
       %td.mm.loss
         %p.mm.loss
     - else

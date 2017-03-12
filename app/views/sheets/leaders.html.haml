@@ -1,6 +1,6 @@
 %div
   There are #{@sheets.size} entries. Contact gpasley@gmail.com if you have any questions about your score
-  %table#leaders
+  %table.leaders
     %th Name
     %th Bracket
     %th Final Four Teams
@@ -15,20 +15,19 @@
     - @sheets.each_with_index do |sheet, i|
       - row_class = i%2 == 0 ? "even" : "odd"
       %tr{:class => row_class}
-        %td= sheet.user.fullname
+        %td= sheet.user.full_name
         %td= link_to sheet.name, sheet
         %td
-          %span{:class => 'loss' if team_loss(sheet.round4g1) == true}
-            = sheet.round4g1
-            ,
-          %span{:class => 'loss' if team_loss(sheet.round4g2) == true}
-            \ #{sheet.round4g2},
-          %span{:class => 'loss' if team_loss(sheet.round4g3) == true}
-            \ #{sheet.round4g3},
-          %span{:class => 'loss' if team_loss(sheet.round4g4) == true}
-            \ #{sheet.round4g4}
+          %span{class: team_loss(sheet.round4g1) && 'loss' }
+            #{sheet.round4g1},
+          %span{class: team_loss(sheet.round4g2) && 'loss' }
+            #{sheet.round4g2},
+          %span{class: team_loss(sheet.round4g3) && 'loss' }
+            #{sheet.round4g3},
+          %span{class: team_loss(sheet.round4g4) && 'loss' }
+            #{sheet.round4g4}
         %td
-          %span{:class => 'loss' if team_loss(sheet.round6) == true}
+          %span{class: team_loss(sheet.round6) && 'loss' }
             = sheet.round6
         %td= sheet.round1pts
         %td= sheet.round2pts

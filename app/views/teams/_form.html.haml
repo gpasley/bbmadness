@@ -5,13 +5,23 @@
       %ul
         - @team.errors.full_messages.each do |msg|
           %li= msg
-
-  = f.text_field :name, placeholder: "Team Name", autofocus: true
-  = f.text_field :rank, placeholder: "Rank"
-  = f.text_field :group, placeholder: "Group"
-  = f.text_field :match_up, placeholder: "Match Up"
-  = f.text_field :url, placeholder: "Url"
-  = f.label :loss_yn, :class => 'form_lbl'
-  = f.check_box :loss_yn
+  .form-group
+    %label{for: :name} Team Name
+    = f.text_field :name, placeholder: "Team Name", autofocus: true, label: 'Team Name'
+  .form-group
+    %label{for: :rank} Rank
+    = f.text_field :rank, placeholder: "Rank"
+  .form-group
+    %label{for: :group} Group
+    = f.text_field :group, placeholder: "Group"
+  .form-group
+    %label{for: :match_up} Match Up
+    = f.text_field :match_up, placeholder: "Match Up"
+  .form-group
+    %label{for: :url} Url
+    = f.text_field :url, placeholder: "Url"
+  .form-group
+    = f.label :loss_yn, :class => 'form_lbl'
+    = f.check_box :loss_yn
   .actions
     = f.submit 'Save'

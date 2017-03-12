@@ -1,6 +1,8 @@
 %h1 Listing teams
 
-%table
+= link_to 'New Team', new_team_path
+
+%table.leaders.table-hover
   %thead
     %tr
       %th Name
@@ -21,7 +23,7 @@
         %td 
           = team.group
         %td
-          = link_to 'Show', team
+          = link_to 'Team Lost', team_lost_team_path(team)
           = link_to 'Edit', edit_team_path(team)
           = link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

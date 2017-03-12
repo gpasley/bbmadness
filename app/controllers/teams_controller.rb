@@ -1,10 +1,10 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :team_lost]
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.order(:group, :match_up, :rank)
   end
 
   # GET /teams/1
@@ -20,6 +20,11 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
   end
+  
+  def team_lost
+    @team.update_attribute(:loss_yn, true)
+    redirect_to teams_path
+  end
 
   # POST /teams
   # POST /teams.json
@@ -28,7 +33,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to teams_path, notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -54,7 +59,7 @@ class TeamsController < ApplicationController
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
-    @team.destroy
+#    @team.destroy
     respond_to do |format|
       format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }

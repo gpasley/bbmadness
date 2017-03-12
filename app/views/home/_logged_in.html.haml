@@ -19,7 +19,7 @@
       = link_to 'Add Bracket', new_sheet_path, :class => "btn success"
       %br/
   .row
-    .span3
+    .col-md-3
       %h2 Scoring
       %p Round 1 - 1pt
       %p Round 2 - 2pts
@@ -33,24 +33,24 @@
       %p 2nd -
       %p 3rd -
       %p Last -
-    .span4
+    .col-md-4
       %h2 Champion Pick
-      %table{:width => "50%"}
-        / - @picks.each do |pick|
-        /   %tr
-        /     - if team_loss(pick[0])==true
-        /       %td.mm.loss= pick[0]
-        /       %td.mm.loss{:align => "right"}= pick[1]
-        /     - else
-        /       %td= pick[0]
-        /       %td{:align => "right"}= pick[1]
-    .span5
+      %table.table
+        - @picks.each do |pick|
+          %tr
+            - if team_loss(pick[0])==true
+              %td.mm.loss= pick[0]
+              %td.mm.loss{:align => "right"}= pick[1]
+            - else
+              %td= pick[0]
+              %td{:align => "right"}= pick[1]
+    .col-md-5
       %h2
         Leaders #{link_to 'View All', leaders_path, :class => 'btn'}
-      %table{:width => "50%"}
-        / - @leaders.each do |leader|
-        /   %tr
-        /     %td
-        /       = leader.name
-        /     %td{:align => "right"}= leader.total_points
+      %table.table
+        - @leaders.each do |leader|
+          %tr
+            %td
+              = leader.name
+            %td{:align => "right"}= leader.total_points
   %div

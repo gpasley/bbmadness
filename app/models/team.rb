@@ -1,5 +1,6 @@
 class Team < ApplicationRecord
   validates_presence_of :name, :rank, :match_up, :group
+  validates :name, uniqueness: true
   validates :group, inclusion: { in: %w(a b A B) }
   validates :match_up, numericality: { only_integer: true }, inclusion: 1..16
   
@@ -11,6 +12,6 @@ class Team < ApplicationRecord
   end
   
   def set_display_name
-    self.display_name = self.rank.to_s + ' ' + self.name
+    self.display_name = self.name + ' ' + self.rank.to_s 
   end
 end

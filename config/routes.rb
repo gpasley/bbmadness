@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :sheets, except: [ :index ]
   
-  resources :teams
+  resources :teams do
+    member do
+      get :team_lost
+    end
+  end
 
   root to: "home#index"
 end

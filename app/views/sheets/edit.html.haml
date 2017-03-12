@@ -2,7 +2,7 @@
   = render "shared/error_messages", :target => @sheet
   %div
     = f.text_field :name, :placeholder => 'Bracket Name...'
-    for #{@sheet.user.fullname}
+    for #{@sheet.user.full_name}
   %table.mm{:summary => "Tournament Bracket"}
     %tr
       %td.mm
