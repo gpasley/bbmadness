@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Team.delete_all
+
 teams = Team.create(
 [
   {name: 'Duke',  rank: 1,  match_up: 1, group: 'A'},
