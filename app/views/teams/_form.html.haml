@@ -1,4 +1,4 @@
-= form_for @team do |f|
+= form_for @team, html: {class: 'form-horizontal'} do |f|
   - if @team.errors.any?
     #error_explanation
       %h2= "#{pluralize(@team.errors.count, "error")} prohibited this team from being saved:"
@@ -6,8 +6,9 @@
         - @team.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    %label{for: :name} Team Name
-    = f.text_field :name, placeholder: "Team Name", autofocus: true, label: 'Team Name'
+    %label.col-sm-2.control-label{for: :name} Team Name
+    .div.col-sm-10
+      = f.text_field :name, placeholder: "Team Name", autofocus: true, class: 'form-control'
   .form-group
     %label{for: :rank} Rank
     = f.text_field :rank, placeholder: "Rank"

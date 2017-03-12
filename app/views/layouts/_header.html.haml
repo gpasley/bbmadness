@@ -1,24 +1,31 @@
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
-      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.brand{:href => "#"}
-        Brackets #{Time.now.strftime("%Y")}
-      .nav-collapse
-        %ul.nav
-          %li= link_to 'Home', root_path
-          - if user_signed_in?
-            %li= link_to 'My Brackets', my_brackets_path
-            %li= link_to "Logout", destroy_user_session_path, :method => :delete
-            %li     
-            %li= link_to 'Howdy, #{current_user.first_name} (#{current_user.email})', edit_user_registration_path(current_user)
-            %li= current_user.first_name
-            - if current_user.is_admin?
-              %li= link_to "Teams", teams_path
-          - else
-            %li= link_to "Register ", new_user_registration_path
-            %li= link_to "Login", new_user_session_path
+/ - if user_signed_in?
+/   %nav.navbar.navbar-dark.navbar-static-top
+/     %a.navbar-brand{:href => "#"}
+/       Brackets #{Time.now.strftime("%Y")}
+/     %ul.nav.navbar-nav.float-xs-right
+/       %li.nav-item
+/         = link_to 'Home', root_path
+/       %li= link_to 'My Brackets', my_brackets_path
+/       %li= link_to "Logout", destroy_user_session_path, :method => :delete
+/       %li     
+/       %li= link_to 'Howdy, #{current_user.first_name} (#{current_user.email})', edit_user_registration_path(current_user)
+/       %li= current_user.first_name
+/       - if current_user.is_admin?
+/         %li= link_to "Teams", teams_path
 
+- if user_signed_in?
+  .div.mmnav
+    %ul
+      %li
+        %a.navbar-brand{:href => "#"}
+          Brackets #{Time.now.strftime("%Y")}
+      %li
+        = link_to 'Home', root_path
+      %li
+        = link_to 'My Brackets', my_brackets_path
+      %li
+        = link_to 'Edit Profile', edit_user_registration_path(current_user)
+      - if current_user.is_admin?
+        %li= link_to "Teams", teams_path
+      %li
+        = link_to "Logout", destroy_user_session_path, :method => :delete
