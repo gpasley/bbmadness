@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'sheets/lock_sheets' => 'sheets#lock_sheets', :as => :lock_sheets
 
   resources :sheets, except: [ :index ]
+  
+  resources :teams
 
   root to: "home#index"
 end
