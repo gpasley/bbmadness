@@ -3,16 +3,27 @@
 %table
   %thead
     %tr
-      %th
-      %th
+      %th Name
+      %th Rank
+      %th Match Up
+      %th Group
       %th
 
   %tbody
     - @teams.each do |team|
       %tr
-        %td= link_to 'Show', team
-        %td= link_to 'Edit', edit_team_path(team)
-        %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td 
+          = team.name
+        %td 
+          = team.rank
+        %td 
+          = team.match_up
+        %td 
+          = team.group
+        %td
+          = link_to 'Show', team
+          = link_to 'Edit', edit_team_path(team)
+          = link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
