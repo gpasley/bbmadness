@@ -1,29 +1,3 @@
-/ = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f|
-/         = devise_error_messages!
-/         .form-group
-/           .col-sm-3.control-label
-/             %label{for: :email} Email Address
-/           .col-sm-7
-/             = f.email_field :email, autofocus: true, placeholder: 'your@email.com'
-/         .form-group
-/           %label.col-sm-3.control-label{for: :first_name} First Name
-/           .div.col-sm-7
-/             = f.text_field :first_name, placeholder: 'First Name'
-/         .form-group
-/           %label.col-sm-3.control-label{for: :last_name} Last Name
-/           .div.col-sm-7
-/             = f.text_field :last_name, placeholder: 'Last Name'
-/         .form-group
-/           %label.col-sm-3.control-label{for: :password} Password
-/           .div.col-sm-7
-/             = f.password_field :password, autocomplete: "off", placeholder: 'Password'
-/         .form-group
-/           %label.col-sm-3.control-label{for: :password_confirmation} Confirm Password
-/           .div.col-sm-7
-/             = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password'
-/         .form-group
-/           .div.col-sm-offset-3
-/             = f.submit "Sign up"
 .container
   .div.row  
     %h2 Sign up for Brackets #{Time.now.strftime("%Y")}
@@ -34,7 +8,7 @@
         = f.input :email, autofocus: true, placeholder: 'your@email.com' 
         = f.input :first_name, placeholder: 'First Name' 
         = f.input :last_name, placeholder: 'Last Name' 
-        = f.input :password, autocomplete: "off", placeholder: 'Password'
+        = f.input :password, autocomplete: "off", placeholder: 'Password', hint: @minimum_password_length.to_s + ' characters minimum'
         = f.input :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' 
         = f.submit "Sign up", class: 'btn btn-success'
         = link_to "Cancel", root_path, class: 'btn btn-default'
