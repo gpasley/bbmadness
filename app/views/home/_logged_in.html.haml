@@ -7,16 +7,16 @@
     %font{:color => "red"} Please review your bracket and contact gpasley@gmail.com for any corrections.  Otherwise, the higher seed will always be picked for the correction.
   - if user_signed_in?
     - unless @sheet.nil?
-      = link_to 'View Master Sheet', sheet_path(@sheet), :class => "btn btn-info"
+      = link_to 'View Master Sheet', sheet_path(@sheet), class: "btn btn-info"
       %br/
       %br/
     - if current_user.is_admin?
-      = link_to 'Calculate', points_path, :class => "btn btn-success"
-      = link_to 'Lock', lock_sheets_path, :class => "btn btn-danger"
+      = link_to 'Calculate', points_path, class: "btn btn-success"
+      = link_to 'Lock', lock_sheets_path, class: "btn btn-danger"
       %br/
       %br/
     - if @locked.nil?
-      = link_to 'Add Bracket', new_sheet_path, :class => "btn success"
+      = link_to 'Add Bracket', new_sheet_path, class: "btn-primary btn"
       %br/
   .row
     .col-md-3
@@ -35,7 +35,7 @@
       %p Last -
     .col-md-4
       %h2 Champion Pick
-      %table.table
+      %table.table.table-striped
         - @picks.each do |pick|
           %tr
             - if team_loss(pick[0])==true
@@ -46,8 +46,9 @@
               %td{:align => "right"}= pick[1]
     .col-md-5
       %h2
-        Leaders #{link_to 'View All', leaders_path, :class => 'btn'}
-      %table.table
+        Leaders 
+        = link_to 'View All', leaders_path, class: "btn btn-info"
+      %table.table.table-striped
         - @leaders.each do |leader|
           %tr
             %td
