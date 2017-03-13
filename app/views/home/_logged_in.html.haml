@@ -33,7 +33,7 @@
       %p Last -
     .col-md-4
       %h2 Champion Pick
-      %table.table.table-striped
+      %table.table
         - @picks.each do |pick|
           %tr
             - if team_loss(pick[0])==true
@@ -46,7 +46,7 @@
       %h2
         Leaders 
         = link_to 'View All', leaders_path, class: "btn btn-info"
-      %table.table.table-striped
+      %table.table
         - @leaders.each do |leader|
           %tr
             %td
