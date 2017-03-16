@@ -1,6 +1,7 @@
 %h1 Listing teams
 
-= link_to 'New Team', new_team_path
+- if policy(Team).new?
+  = link_to 'New Team', new_team_path, class: 'btn btn-success'
 
 %table.leaders.table-hover
   %thead
@@ -23,10 +24,13 @@
         %td 
           = team.group
         %td
-          = link_to 'Team Lost', team_lost_team_path(team)
-          = link_to 'Edit', edit_team_path(team)
-          = link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          - if policy(team).team_lost?
+            = link_to 'Team Lost', team_lost_team_path(team), class: 'btn btn-small btn-warning'
+          - if policy(team).edit?
+            = link_to 'Edit', edit_team_path(team), class: 'btn btn-primary'
+          - if policy(team).destroy?
+            = link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
-
-= link_to 'New Team', new_team_path
+- if policy(Team).new?
+  = link_to 'New Team', new_team_path, class: 'btn btn-success'

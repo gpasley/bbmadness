@@ -7,10 +7,11 @@
       %li
         = link_to 'Home', root_path
       %li
-        = link_to 'My Brackets', my_brackets_path
+        - if policy(Sheet).my_brackets? 
+          = link_to 'My Brackets', my_brackets_path
       %li
         = link_to 'Edit Profile', edit_user_registration_path(current_user)
-      - if current_user.is_admin?
+      - if policy(Team).index? 
         %li= link_to "Teams", teams_path
       %li
         = link_to "Logout", destroy_user_session_path, :method => :delete

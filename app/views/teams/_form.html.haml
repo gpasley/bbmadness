@@ -25,4 +25,5 @@
     = f.label :loss_yn, :class => 'form_lbl'
     = f.check_box :loss_yn
   .actions
-    = f.submit 'Save'
+    if policy(Team).update?
+      = f.submit 'Save'

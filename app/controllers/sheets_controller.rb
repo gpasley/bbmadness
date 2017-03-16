@@ -14,8 +14,11 @@ class SheetsController < ApplicationController
 #   end
   
   def my_brackets
-    @sheets = Sheet.where("user_id = ?", current_user).order("name")
-    @master = Sheet.where("is_master = ?", true).first
+    authorize(Sheet)
+    master_sheet = Sheet.where(is_master: true)
+    @sheets = Sheet.where(user_id: current_user.id, is_master: false).order("name")
+    @sheets = master_sheet + @sheets
+    @master = Sheet.where(is_master: true).first
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sheets }
@@ -23,6 +26,7 @@ class SheetsController < ApplicationController
   end
   
   def get_points
+    authorize(Sheet)
     @master = Sheet.where("is_master = ?", true).first
     @sheets = Sheet.where("is_master = ?", false)
     @sheets.each do |sheet|
@@ -35,10 +39,12 @@ class SheetsController < ApplicationController
   end
   
   def leaders
+    authorize(Sheet)
     @sheets = Sheet.where("is_master = ?", false).order("total_points desc")
   end
   
   def lock_sheets
+    authorize(Sheet)
     @sheets = Sheet.where("is_master = ?", false)
     @sheets.each do |sheet|
     	sheet.update_attribute(:is_locked, true)
@@ -51,6 +57,7 @@ class SheetsController < ApplicationController
   end
   
   def new
+    authorize(Sheet)
     @sheet = Sheet.new
 
     respond_to do |format|
@@ -59,10 +66,11 @@ class SheetsController < ApplicationController
   end
 
   def edit
-    
+    authorize(@sheet)
   end
 
   def create
+    authorize(Sheet)
     @sheet = Sheet.new(sheet_params)
     @sheet.user_id = current_user.id
     @sheet.last_edit_by = current_user.id
@@ -76,6 +84,7 @@ class SheetsController < ApplicationController
   end
 
   def update
+    authorize(@sheet)
     @sheet.last_edit_by = current_user.id
     respond_to do |format|
       if @sheet.update(sheet_params)
@@ -87,6 +96,7 @@ class SheetsController < ApplicationController
   end
   
   def show
+    authorize(@sheet)
     @master = Sheet.where("is_master = ?", true).first
     respond_to do |format|
       format.html # show.html.erb
