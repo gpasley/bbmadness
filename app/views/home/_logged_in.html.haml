@@ -12,7 +12,8 @@
       = link_to 'View Master Sheet', sheet_path(@sheet), class: "btn btn-info"
     - if current_user.is_admin?
       = link_to 'Calculate', points_path, class: "btn btn-success"
-      = link_to 'Lock', lock_sheets_path, class: "btn btn-danger"
+      - if @locked.nil?
+        = link_to 'Lock', lock_sheets_path, class: "btn btn-danger"
 
       %br/
     
