@@ -312,7 +312,11 @@
       %td{:align => "center", :rowspan => "32"}
         %p.mm
           - if ((@sheet.is_locked == false) && (@sheet.user == current_user)) || (current_user.is_admin?)
-            = link_to "Edit Bracket", edit_sheet_path(@sheet), :class => "btn btn-success"
+            = link_to "Edit Bracket", edit_sheet_path(@sheet), :class => "btn btn-primary btn-sm"
+          - if policy(@sheet).mark_paid? 
+            - if !@sheet.is_paid?
+              %br/
+              = link_to "Mark as Paid", mark_paid_sheet_path(@sheet), :class => "btn btn-success btn-sm"
     - if (!@master.round4g4.blank? && @master.round4g4 != @sheet.round4g4) || (team_loss(@sheet.round4g4)==true && @master.round4g4 != @sheet.round4g4)
       %td.mm.loss{:rowspan => "8"}
         %p.mm.loss

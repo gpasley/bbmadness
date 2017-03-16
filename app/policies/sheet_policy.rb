@@ -43,6 +43,10 @@ class SheetPolicy < ApplicationPolicy
     user.is_admin?
   end
   
+  def mark_paid?
+    user.is_admin?
+  end
+  
   def show?
     true
   end

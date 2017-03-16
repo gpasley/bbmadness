@@ -10,6 +10,8 @@
         - if policy(Sheet).my_brackets? 
           = link_to 'My Brackets', my_brackets_path
       %li
+        = link_to 'Leaders', leaders_path
+      %li
         = link_to 'Edit Profile', edit_user_registration_path(current_user)
       - if policy(Team).index? 
         %li= link_to "Teams", teams_path

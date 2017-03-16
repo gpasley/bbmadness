@@ -16,4 +16,8 @@ module ApplicationHelper
       when :alert then "alert"
     end
   end
+  
+  def humanize_boolean(bool)
+    bool ? 'Yes' : 'No'
+  end
 end

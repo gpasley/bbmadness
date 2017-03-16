@@ -1,6 +1,8 @@
 %div
   There are #{@sheets.size} entries. Contact gpasley@gmail.com if you have any questions about your score
   %table.leaders
+    - if current_user.is_admin?
+      %th Paid
     %th Name
     %th Bracket
     %th Final Four Teams
@@ -15,6 +17,10 @@
     - @sheets.each_with_index do |sheet, i|
       - row_class = i%2 == 0 ? "even" : "odd"
       %tr{:class => row_class}
+        - if current_user.is_admin?
+          %td 
+            %div{class: (sheet.is_paid? || "false")}
+              = humanize_boolean(sheet.is_paid)
         %td= sheet.user.full_name
         %td= link_to sheet.name, sheet
         %td

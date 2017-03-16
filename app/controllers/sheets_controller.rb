@@ -2,7 +2,7 @@ class SheetsController < ApplicationController
   include Points
   
   before_filter :authenticate_user!
-  before_action :set_sheet, only: [:show, :edit, :update, :destroy]
+  before_action :set_sheet, only: [:show, :edit, :update, :destroy, :mark_paid]
   
   # def index
 #     @sheets = Sheet.all
@@ -54,6 +54,12 @@ class SheetsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path }
     end
+  end
+  
+  def mark_paid
+    authorize(@sheet)
+    @sheet.update_attribute(:is_paid, true)
+    redirect_to leaders_path
   end
   
   def new

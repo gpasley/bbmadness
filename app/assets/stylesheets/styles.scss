@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 table.mm {
   border-collapse: collapse;
   border: none;
@@ -229,3 +231,10 @@ a.login_lnk, a.login_lnk hover {
   }
 }
 
+.true {
+  @extend .text-success;
+}
+
+.false {
+  @extend .text-danger;
+}

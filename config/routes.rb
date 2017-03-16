@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get 'sheets/leaders' => 'sheets#leaders', :as => :leaders
   get 'sheets/lock_sheets' => 'sheets#lock_sheets', :as => :lock_sheets
 
-  resources :sheets, except: [ :index ]
+  resources :sheets, except: [ :index ] do
+    member do
+      get :mark_paid
+    end
+  end
   
   resources :teams do
     member do
