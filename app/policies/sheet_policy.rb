@@ -23,10 +23,6 @@ class SheetPolicy < ApplicationPolicy
     @sheet = sheet
   end
   
-  def index?
-    true
-  end
-  
   def leaders?
     true
   end
@@ -36,15 +32,15 @@ class SheetPolicy < ApplicationPolicy
   end
   
   def get_points?
-    user.is_admin?
+    @user.is_admin?
   end
   
   def lock_sheets?
-    user.is_admin?
+    @user.is_admin?
   end
   
   def mark_paid?
-    user.is_admin?
+    @user.is_admin?
   end
   
   def show?
@@ -60,14 +56,14 @@ class SheetPolicy < ApplicationPolicy
   end
   
   def edit?
-    true if (not @sheet.is_locked? && (@sheet.user_id = user.id)) || user.is_admin?
+    true if (not @sheet.is_locked? && (@sheet.user_id = @user.id)) || @user.is_admin?
   end
   
   def update?
-    true if (not @sheet.is_locked? && (@sheet.user_id = user.id)) || user.is_admin?
+    true if (not @sheet.is_locked? && (@sheet.user_id = @user.id)) || @user.is_admin?
   end
   
   def destroy?
-    user.is_admin? 
+    @user.is_admin? 
   end
 end

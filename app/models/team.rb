@@ -1,6 +1,5 @@
 class Team < ApplicationRecord
   validates_presence_of :name, :rank, :match_up, :group
-  validates :name, uniqueness: true
   validates :group, inclusion: { in: %w(a b A B) }
   validates :match_up, numericality: { only_integer: true }, inclusion: 1..16
   

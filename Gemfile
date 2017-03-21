@@ -47,9 +47,23 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug', platform: :mri
+  
+  
+  gem 'coderay',   '1.1.0'
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
+  gem 'factory_girl_rspec'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-spork'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rack-test', '0.6.3'
+  gem 'rails-controller-testing'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
