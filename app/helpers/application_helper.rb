@@ -1,11 +1,7 @@
 module ApplicationHelper
   def team_loss(team)
-    team = Team.where("name=? and loss_yn=?", team, true)
-    if team.size > 0
-      return true
-    else
-      return false
-    end
+    team = Team.where(name: team, loss_yn: true)
+    (team.size > 0) ? true : false
   end
   
   def flash_class(level)
