@@ -41,6 +41,7 @@ gem 'haml-rails'
 gem 'bootstrap'
 gem 'simple_form'
 gem 'pundit'
+gem 'awesome_print'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
