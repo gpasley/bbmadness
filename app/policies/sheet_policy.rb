@@ -2,21 +2,21 @@ class SheetPolicy < ApplicationPolicy
   attr_reader :user, :sheet
   
   class Scope
-      attr_reader :user, :scope
+    attr_reader :user, :scope
 
-      def initialize(user, scope)
-        @user  = user
-        @scope = scope
-      end
+    def initialize(user, scope)
+      @user  = user
+      @scope = scope
+    end
 
-      def resolve
-        if user.is_admin?
-          scope.all
-        else
-          scope.where(user_id: user.id)
-        end
+    def resolve
+      if user.is_admin?
+        scope.all
+      else
+        scope.where(user_id: user.id)
       end
     end
+  end
 
   def initialize(user, sheet)
     @user = user
