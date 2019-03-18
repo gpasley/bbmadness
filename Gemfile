@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.4.0"
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -48,8 +48,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug', platform: :mri
-  
-  
+
+
   gem 'coderay',   '1.1.0'
   gem 'database_cleaner'
   gem "factory_girl_rails"
